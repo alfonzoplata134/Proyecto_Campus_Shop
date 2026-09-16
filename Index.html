@@ -31,15 +31,74 @@
             </nav>
             <div class="header-actions">
                 <a href="perfil.html" class="header-icon-btn" aria-label="Mi perfil" title="Mi perfil">👤</a>
+                <a href="carrito.html" class="header-icon-btn" aria-label="Carrito de compras" title="Carrito">🛒
+                    <span class="badge" arial-label="Artículos en el carrito" aria-hidden="true">2</span>
+                </a>
+                <button class="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </header>
     <!-- CONTENIDO PRINCIPAL -->
-    <main class="main-content">
-        <section class="categorias-section">
+    <!-- ===== MAIN ===== -->
+  <main class="page-main" id="main-content">
 
-        </section>
-    </main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-content">
+
+          <span class="hero-eyebrow">¡La tienda oficial de tu Campus!</span>
+          <h1 id="hero-title">Todo lo que necesitas para tu <span class="grad-text">vida universitaria</span></h1>
+          <p>Libros, tecnología, papelería y accesorios al mejor precio. Compra segura, entrega en Campus y pagos flexibles.</p>
+
+          <form class="search-bar" action="catalogo.html" method="get" role="search" aria-label="Buscar productos">
+            <label for="hero-search" class="sr-only">Buscar productos</label>
+            <input 
+              id="hero-search" 
+              name="q" 
+              placeholder="Busca desde libros hasta tecnología" 
+              type="search"
+              autocomplete="off"
+            >
+            <button type="submit" class="btn btn-primary btn-sm" aria-label="Buscar">
+              🔍 Buscar
+            </button>
+          </form>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="num">2,400+</span>
+              <span class="lbl">Productos</span>
+            </div>
+            <div class="hero-stat">
+              <span class="num">12K+</span>
+              <span class="lbl">Estudiantes</span>
+            </div>
+            <div class="hero-stat">
+              <span class="num">99%</span>
+              <span class="lbl">Satisfacción</span>
+            </div>
+          </div>
+
+        </div> <!-- Cierra .hero-content -->
+      </div> <!-- Cierra .container -->
+    </section> <!-- Cierra .hero-section -->
+    <section class="section-alt" aria-labelledby="cat-title">
+        <div class="section-header">
+            <div></div>
+            <h2 id="cat-title">Categorias populares</h2>
+            <a href="catalogo.html" class="btn btn-primary btn-sm">Ver todo</a>
+        </div>
+        <div class="categories-grid">
+            <a href="catalogo.html"></a>
+        </div>
+    </section>
+
+  </main>
 
 </body>
 
