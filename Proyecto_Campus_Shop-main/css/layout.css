@@ -1,0 +1,197 @@
+
+/*contenerdor principal para el ancho del sitio*/
+.container {
+    width: 100%; /*ancho disponible e la pantalla*/
+    max-width: 1200px; /*evita que se expanda en pantallas grandes*/
+    margin-left: auto; /*centra hacia la izquierda*/
+    margin-right: auto; /*centra hacia la derecha*/
+    padding-left: var(--space-md); /*espaciado interno hacia la izquierda*/
+    padding-right: var(--space-md); /*espaciado  interno hacia la derecha*/
+}
+
+
+/*estructura principal para control vertical*/
+.app-layout {
+    display: flex; /*activa el modelo de caja flexible*/
+    flex-direction: column; /*organiza los elementos hijos (header,main,footeer) en verticl*/
+    min-height: 100vh; /*asegura que la app ocupe el 100% de la altura de la pantalla*/
+}
+
+
+/*area de contenido principal (donde se cargan las vistas)*/
+.main-content {
+    flex: 1; /*ocupa todo el espacio disponible*/
+    padding-top: var(--space-lg); /*espaciado superior*/
+    padding-bottom: var(--space-2xl); /*espaciado inferior*/
+}
+
+
+/*encabezado principal*/
+.main-header {
+    background-color: var(--color-bg-card); /*color de fondo del encabezado*/
+    border-bottom: 1px solid var(--color-border); /*borde inferior*/
+    position: sticky; /*mantiene el encabezado visible al desplazarce*/
+    top: 0; /*mantiene el encabezado en la parte superior*/
+    z-index: 100; /*mantiene el encabezado en la parte superior*/
+    box-shadow: var(--shadow-sm); /*sombra del encabezado*/
+}
+
+
+/*encabezado principal*/
+.header-container {
+    display: flex; /*activa el modelo de caja flexible*/
+    align-items: center; /*centra los elementos hijos*/
+    gap: var(--space-xs); /*espaciado entre elementos*/
+    font-size: var(--font-size-xl); /*tamaño de la fuente*/
+    font-weight: var(--font-weight-bold); /*grosor de la fuente*/
+    color: var(--color-primary); /*color del texto*/
+}
+
+
+/*menu de navegacion principal*/
+.main-nav {
+    display: flex; /*activa el modelo de caja flexible*/
+    align-items: center; /*centra los elementos hijos*/
+    gap: var(--space-md); /*espaciado entre elementos*/
+}
+
+
+/*lista desordenada de enlaces dentro del menu*/
+.nav-list {
+    display: flex; /*activa el modelo de caja flexible, distribuye los liv en fila horizontal*/
+    align-items: center; /*centra los elementos hijos*/
+    gap: var(--space-md); /*espaciado entre elementos*/
+}
+
+
+/*items de navegacion*/
+.nav-item a {
+    font-weight: var(--font-weight-medium); /*grosor de la fuente*/
+    color: var(--color-text-main); /*color del texto*/
+    padding: var(--space-xs) var(--space-sm); /*espaciado interno*/
+    border-radius: var(--radius-sm); /*redondeado de las esquinas*/
+    transition: background-color var(--transition-fast), color var(--transition-fast); /*animacion*/
+}
+
+
+/*animacion de los items del menu*/
+.nav-item a:hover,
+.nav-item a.active {
+    color: var(--color-primary); /*color violeta*/
+    background-color: var(--color-bg-alt); /*color de fondo*/
+}
+
+
+/*encabezado de seccion con espacios flexibles*/
+.section-header {
+    display: flex; /*activa el modelo de caja flexible*/
+    justify-content: space-between; /*separa los elementos*/
+    align-items: center; /*centra los elementos*/
+    margin-bottom: var(--space-lg); /*espaciado inferior*/
+}
+
+
+/*cuadricula de productos con una columna por defecto*/
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr; /*una columna*/
+    gap: var(--space-lg); /*espaciado entre columnas*/
+}
+
+
+/*disposicion del catalogo con dos columnas, la primera es la barra lateral y la segunda es el contenido principal*/
+.catalog-layout {
+    display: flex; /*activa el modelo de caja flexible*/
+    flex-direction: column; /*disposicion vertical*/
+    gap: var(--space-xl); /*espaciado entre columnas*/
+}
+
+
+/*barra lateral del catalogo*/
+.catalog-sidebar {
+    width: 100%; /*ancho total*/
+}
+
+
+/*contenido del catalogo*/
+.catalog-content {
+    flex: 1; /*ocupa todo el espacio disponible*/
+}
+
+
+/*disposicion del layout del detalle del producto*/
+.product-detail-layout {
+    display: grid; /*activa el modelo de caja flexible*/
+    grid-template-columns: 1fr; /*una columna*/
+    gap: var(--space-xl); /*espaciado entre columnas*/
+}
+
+
+/*disposicion del layout del pago y del carrito*/
+.checkout-layout,
+.cart-layout {
+    display: grid; /*activa el modelo de caja flexible*/
+    grid-template-columns: 1fr; /*una columna*/
+    gap: var(--space-xl); /*espaciado entre columnas*/
+}
+
+
+/*disposicion del layout del estado vacio*/
+.empty-state-layout {
+    display: flex; /*activa el modelo de caja flexible*/
+    flex-direction: column; /*disposicion vertical*/
+    align-items: center; /*centra los elementos*/
+    justify-content: center; /*centra los elementos*/
+    text-align: center; /*centra el texto*/
+    padding: var(--space-2xl) var(--space-md); /*espaciado interno*/
+    min-height: 50vh; /*altura minima*/
+}
+
+
+/*disposicion del layout del perfil*/
+.profile-layout {
+    display: grid; /*activa el modelo de caja flexible*/
+    grid-template-columns: 1fr; /*una columna*/
+    gap: var(--space-xl); /*espaciado entre columnas*/
+}
+
+
+/*pie de pagina*/
+.main-footer {
+    background-color: var(--color-bg-card); /*color de fondo*/
+    border-top: 1px solid var(--color-border); /*borde superior*/
+    padding-top: var(--space-2xl); /*espaciado superior*/
+    padding-bottom: var(--space-xl); /*espaciado inferior*/
+    margin-top: auto; /*margen superior automático*/
+}
+
+
+/*disposicion de la cuadricula del pie de pagina*/
+.footer-grid {
+    display: grid; /*activa el modelo de caja flexible*/
+    grid-template-columns: 1fr; /*una columna*/
+    gap: var(--space-xl); /*espaciado entre columnas*/
+    margin-bottom: var(--space-xl); /*espaciado inferior*/
+}
+
+
+/*titulos de las columnas del pie de pagina*/
+.footer-colum h4 {
+    margin-bottom: var(--space-md); /*espaciado inferior*/
+}
+
+/*listas de enlaces del pie de pagina*/
+.footer-links {
+    display: flex; /*activa el modelo de caja flexible*/
+    flex-direction: column; /*disposicion vertical*/
+    gap: var(--space-sm); /*espaciado entre elementos*/
+}
+
+/*barra inferior del pie de pagina*/
+.footer-bottom {
+    border-top: 1px solid var(--color-border); /*borde superior*/
+    padding-top: var(--space-lg); /*espaciado superior*/
+    text-align: center; /*centra el texto*/
+    font-size: var(--font-size-sm); /*tamaño de la fuente*/
+    color: var(--color-text-muted); /*color del texto*/
+}
