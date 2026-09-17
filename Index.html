@@ -34,12 +34,21 @@
         <a href="carrito.html" class="header-icon-btn" aria-label="Carrito de compras" title="Carrito">🛒
           <span class="badge" data-cart-count aria-label="Artículos en el carrito" aria-live="polite">0</span>
         </a>
+        <button class="more-menu-toggle" type="button" aria-label="Abrir opciones" aria-expanded="false">⋮</button>
         <button class="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
         </button>
       </div>
+
+      <nav class="more-menu" aria-label="Menú de opciones" hidden>
+        <a href="catalogo.html">Todos los productos</a>
+        <a href="catalogo.html?cat=tecnologia">Tecnología</a>
+        <a href="catalogo.html?cat=libros">Libros</a>
+        <a href="catalogo.html?cat=ropa">Ropa</a>
+        <a href="carrito.html">Carrito</a>
+      </nav>
     </div>
   </header>
   <!-- CONTENIDO PRINCIPAL -->
@@ -131,6 +140,25 @@
       if (!badge) return;
       badge.textContent = total;
       badge.setAttribute('aria-label', `Artículos en el carrito: ${total}`);
+    }
+
+    const moreMenuToggle = document.querySelector('.more-menu-toggle');
+    const moreMenu = document.querySelector('.more-menu');
+
+    if (moreMenuToggle && moreMenu) {
+      moreMenuToggle.addEventListener('click', () => {
+        const isOpen = !moreMenu.hidden;
+        moreMenu.hidden = isOpen;
+        moreMenuToggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+
+      document.addEventListener('click', (event) => {
+        const clickedInside = moreMenuToggle.contains(event.target) || moreMenu.contains(event.target);
+        if (!clickedInside) {
+          moreMenu.hidden = true;
+          moreMenuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
     }
 
     document.addEventListener('DOMContentLoaded', updateCartBadge);
