@@ -32,7 +32,7 @@
             <div class="header-actions">
                 <a href="perfil.html" class="header-icon-btn" aria-label="Mi perfil" title="Mi perfil">👤</a>
                 <a href="carrito.html" class="header-icon-btn" aria-label="Carrito de compras" title="Carrito">🛒
-                    <span class="badge" arial-label="Artículos en el carrito" aria-hidden="true">2</span>
+                    <span class="badge" data-cart-count aria-label="Artículos en el carrito" aria-live="polite">0</span>
                 </a>
                 <button class="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false">
                     <span></span>
@@ -71,16 +71,16 @@
 
           <div class="hero-stats">
             <div class="hero-stat">
-              <span class="num">2,400+</span>
+              <span class="num">8+</span>
               <span class="lbl">Productos</span>
             </div>
             <div class="hero-stat">
-              <span class="num">12K+</span>
-              <span class="lbl">Estudiantes</span>
+              <span class="num">4</span>
+              <span class="lbl">Categorías</span>
             </div>
             <div class="hero-stat">
-              <span class="num">99%</span>
-              <span class="lbl">Satisfacción</span>
+              <span class="num">100%</span>
+              <span class="lbl">En stock</span>
             </div>
           </div>
 
@@ -110,18 +110,37 @@
             <div class="cat-icon" aria-hidden="true">👕</div>
             <span>Ropa Campus</span>
           </a>
-          <a href="catalogo.html?cat=salud" class="category-card">
-            <div class="cat-icon" aria-hidden="true">🍎</div>
-            <span>Salud</span>
-          </a>
-          <a href="catalogo.html?cat=arte" class="category-card">
-            <div class="cat-icon" aria-hidden="true">🎨</div>
-            <span>Arte y Diseño</span>
-          </a>
         </div>
     </section>
 
   </main>
+
+  <script>
+    const CART_KEY = 'campusCart';
+
+    function getCart() {
+      try {
+        const cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+        return Array.isArray(cart) ? cart : [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function updateCartBadge() {
+      const badge = document.querySelector('[data-cart-count]');
+      const cart = getCart();
+      const total = cart.reduce((sum, item) => sum + Number(item.quantity || 1), 0);
+
+      if (!badge) return;
+      badge.textContent = total;
+      badge.setAttribute('aria-label', `Artículos en el carrito: ${total}`);
+    }
+
+    document.addEventListener('DOMContentLoaded', updateCartBadge);
+    window.addEventListener('storage', updateCartBadge);
+    updateCartBadge();
+  </script>
 
 </body>
 

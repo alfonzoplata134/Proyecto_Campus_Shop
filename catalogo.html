@@ -98,23 +98,18 @@
                         <h3>Categoría</h3>
 
                         <label class="filter-option">
-                            <input type="checkbox">
+                            <input type="checkbox" name="category" value="Tecnología">
                             Tecnología
                         </label>
 
                         <label class="filter-option">
-                            <input type="checkbox">
+                            <input type="checkbox" name="category" value="Ropa">
                             Ropa
                         </label>
 
                         <label class="filter-option">
-                            <input type="checkbox">
+                            <input type="checkbox" name="category" value="Libros">
                             Libros
-                        </label>
-
-                        <label class="filter-option">
-                            <input type="checkbox">
-                            Hogar
                         </label>
 
                     </div>
@@ -125,12 +120,12 @@
                         <h3>Disponibilidad</h3>
 
                         <label class="filter-option">
-                            <input type="checkbox">
+                            <input type="checkbox" name="availability" value="En stock">
                             En stock
                         </label>
 
                         <label class="filter-option">
-                            <input type="checkbox">
+                            <input type="checkbox" name="availability" value="En oferta">
                             En oferta
                         </label>
 
@@ -142,17 +137,17 @@
                         <h3>Precio</h3>
 
                         <label class="filter-option">
-                            <input type="radio" name="price">
+                            <input type="radio" name="price" value="menos50k">
                             Menos de $50.000
                         </label>
 
                         <label class="filter-option">
-                            <input type="radio" name="price">
+                            <input type="radio" name="price" value="50k100k">
                             $50.000 - $100.000
                         </label>
 
                         <label class="filter-option">
-                            <input type="radio" name="price">
+                            <input type="radio" name="price" value="mas100k">
                             Más de $100.000
                         </label>
 
@@ -243,7 +238,7 @@
                                     </h3>
 
                                     <p class="muted">
-                                        Accesorios
+                                        Tecnología
                                     </p>
 
                                     <div class="product-price">
@@ -532,6 +527,51 @@
         </div>
 
     </footer>
+
+    <script>
+        const productGrid = document.querySelector('.products-grid');
+        const countLabel = document.querySelector('.product-toolbar .muted');
+        const categoryInputs = document.querySelectorAll('input[name="category"]');
+
+        function getSelectedFilters() {
+            return [...categoryInputs]
+                .filter(input => input.checked)
+                .map(input => input.value.trim().toLowerCase());
+        }
+
+        function sortBySelectedFilters() {
+            const selectedFilters = getSelectedFilters();
+            const cards = [...document.querySelectorAll('.product-card')];
+
+            cards.sort((a, b) => {
+                const aText = a.textContent.toLowerCase();
+                const bText = b.textContent.toLowerCase();
+
+                const aMatch = selectedFilters.reduce((score, filter) => {
+                    return score + (aText.includes(filter) ? 1 : 0);
+                }, 0);
+
+                const bMatch = selectedFilters.reduce((score, filter) => {
+                    return score + (bText.includes(filter) ? 1 : 0);
+                }, 0);
+
+                if (aMatch !== bMatch) {
+                    return bMatch - aMatch;
+                }
+
+                return 0;
+            });
+
+            cards.forEach(card => productGrid.appendChild(card));
+            countLabel.textContent = `${cards.length} productos encontrados`;
+        }
+
+        categoryInputs.forEach(input => {
+            input.addEventListener('change', sortBySelectedFilters);
+        });
+
+        sortBySelectedFilters();
+    </script>
 
 </body>
 
