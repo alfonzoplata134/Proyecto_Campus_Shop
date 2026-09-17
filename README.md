@@ -78,6 +78,9 @@ Proyecto_Campus_Shop/
    ```
 2. Abre `Index.html` en tu navegador.
 
-## 👩‍💻 Autora
+## 👩‍💻 Developers
 
-Proyecto desarrollado por Jazmín Agudelo.
+Proyecto desarrollado por 
+Jazmín Agudelo.
+Alejandra Sarmiento.
+Larry Gomez
