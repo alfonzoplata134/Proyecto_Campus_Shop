@@ -69,6 +69,33 @@ Proyecto_Campus_Shop/
 │   └── responsive.css
 └── img/
 ```
+## 📸 Capturas de Pantalla
+
+A continuación se presentan las vistas principales maquetadas comparadas con los requerimientos del proyecto:
+
+### 🏠 Vista Home
+![Vista Principal de la Tienda](img/home.png)
+
+### 🛍️ Catálogo de Productos
+![Vista del Catálogo de Productos](img/catalogo.png)
+
+### 📦 Detalle del Producto
+![Vista de Detalle de Producto](img/producto.png)
+
+### 🛒 Carrito de Compras
+![Vista del Carrito de Compras](img/carrito.png)
+
+### 💳 Processo de Checkout
+![Vista del Formulario de Pago](img/checkout.png)
+
+### 👤 Perfil y Historial de Pedidos
+![Vista de Perfil de Usuario](img/perfil.png)
+
+### 🚫 Pantalla Vacía / Error
+![Vista de Carrito Vacío](img/vacio.png)
+
+###  prodcuctos Populares
+![Productos Populares](img/categoriapopular.png)
 
 ## 🚀 Cómo usarlo
 
