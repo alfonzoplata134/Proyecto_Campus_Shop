@@ -92,7 +92,7 @@ A continuación se presentan las vistas principales maquetadas comparadas con lo
 ![Vista de Perfil de Usuario](img/perfil.png)
 
 ### 🚫 Pantalla Vacía / Error
-![Vista de Carrito Vacío](img/vacio.png)
+![Vista de Carrito Vacío](img/vacios.png)
 
 ###  prodcuctos Populares
 ![Productos Populares](img/categoriapopular.png)
