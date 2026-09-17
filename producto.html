@@ -84,105 +84,7 @@
                 </a>
             </p>
 
-
-            <div class="detail-grid">
-
-
-                <section>
-
-                    <div class="detail-image">
-                        🎧
-                    </div>
-
-                </section>
-
-
-                <article class="detail-info">
-
-                    <span class="badge">
-                        Oferta
-                    </span>
-
-
-                    <h1>
-                        Audífonos Campus
-                    </h1>
-
-
-                    <div class="rating">
-                        ★★★★★
-                        <span class="muted">
-                            (24 reseñas)
-                        </span>
-                    </div>
-
-
-                    <div class="price">
-                        $89.900
-                    </div>
-
-
-                    <p>
-                        Audífonos cómodos para estudiar,
-                        asistir a clases virtuales y disfrutar
-                        de tu música durante la jornada universitaria.
-                    </p>
-
-
-                    <div class="tag-list">
-
-                        <span class="badge">
-                            Bluetooth
-                        </span>
-
-                        <span class="badge">
-                            Inalámbricos
-                        </span>
-
-                        <span class="badge">
-                            Recargables
-                        </span>
-
-                    </div>
-
-
-                    <ul class="feature-list">
-
-                        <li>
-                            Batería de larga duración
-                        </li>
-
-                        <li>
-                            Conexión inalámbrica
-                        </li>
-
-                        <li>
-                            Micrófono integrado
-                        </li>
-
-                        <li>
-                            Diseño ligero
-                        </li>
-
-                    </ul>
-
-
-                    <button class="btn btn-block" type="button">
-                        Agregar al carrito
-                    </button>
-
-
-                    <div class="divider"></div>
-
-
-                    <p class="muted">
-                        Vendido por: Comunidad CampusShop
-                    </p>
-
-                </article>
-
-            </div>
-
+            <div id="product-detail"></div>
 
             <section class="section">
 
@@ -202,85 +104,7 @@
 
                 </div>
 
-
-                <div class="products-grid">
-
-
-                    <article class="product-card">
-
-                        <a href="producto.html">
-
-                            <div class="product-image">
-                                🖱️
-                            </div>
-
-                            <div class="product-info">
-
-                                <h3>
-                                    Mouse inalámbrico
-                                </h3>
-
-                                <div class="product-price">
-                                    $49.900
-                                </div>
-
-                            </div>
-
-                        </a>
-
-                    </article>
-
-
-                    <article class="product-card">
-
-                        <a href="producto.html">
-
-                            <div class="product-image">
-                                ⌨️
-                            </div>
-
-                            <div class="product-info">
-
-                                <h3>
-                                    Teclado mecánico
-                                </h3>
-
-                                <div class="product-price">
-                                    $139.900
-                                </div>
-
-                            </div>
-
-                        </a>
-
-                    </article>
-
-
-                    <article class="product-card">
-
-                        <a href="producto.html">
-
-                            <div class="product-image">
-                                💻
-                            </div>
-
-                            <div class="product-info">
-
-                                <h3>
-                                    Base para portátil
-                                </h3>
-
-                                <div class="product-price">
-                                    $69.900
-                                </div>
-
-                            </div>
-
-                        </a>
-
-                    </article>
-
-                </div>
+                <div id="related-products" class="products-grid"></div>
 
             </section>
 
@@ -300,6 +124,212 @@
         </div>
 
     </footer>
+
+    <script>
+        const products = {
+            audifonos: {
+                name: 'Audífonos Campus',
+                category: 'Tecnología',
+                price: 89900,
+                image: 'img/OIP.jpg',
+                badge: 'Oferta',
+                badgeClass: 'badge',
+                description: 'Audífonos cómodos para estudiar, asistir a clases virtuales y disfrutar de tu música durante la jornada universitaria.',
+                tags: ['Bluetooth', 'Inalámbricos', 'Recargables'],
+                features: ['Batería de larga duración', 'Conexión inalámbrica', 'Micrófono integrado', 'Diseño ligero'],
+                related: ['mouse', 'teclado', 'mochila']
+            },
+            mochila: {
+                name: 'Mochila universitaria',
+                category: 'Accesorios',
+                price: 74900,
+                image: 'img/mochila.webp',
+                badge: 'Popular',
+                badgeClass: 'badge success',
+                description: 'Mochila resistente y espaciosa para llevar tus materiales, cuaderno y laptop con comodidad todos los días.',
+                tags: ['Espaciosa', 'Resistente', 'Ergonómica'],
+                features: ['Compartimentos múltiples', 'Diseño cómodo', 'Material resistente', 'Ideal para campus'],
+                related: ['audifonos', 'teclado', 'camiseta']
+            },
+            libro: {
+                name: 'Libro de programación',
+                category: 'Libros',
+                price: 59900,
+                image: 'img/libros.webp',
+                badge: 'Nuevo',
+                badgeClass: 'badge warning',
+                description: 'Guía práctica para aprender lógica, algoritmos y desarrollo con ejemplos claros para estudiantes.',
+                tags: ['Programación', 'Práctico', 'Académico'],
+                features: ['Ejercicios aplicados', 'Explicación paso a paso', 'Para principiantes', 'Actualizado'],
+                related: ['audifonos', 'teclado', 'cuaderno']
+            },
+            teclado: {
+                name: 'Teclado mecánico',
+                category: 'Tecnología',
+                price: 139900,
+                image: 'img/teclado.webp',
+                badge: 'Stock',
+                badgeClass: 'badge success',
+                description: 'Teclado mecánico con respuesta rápida y un diseño que mejora tu experiencia de estudio y trabajo.',
+                tags: ['Mecánico', 'RGB', 'Ergonómico'],
+                features: ['Teclas rápidas', 'Diseño premium', 'Compatibilidad USB', 'Apto para trabajo y estudio'],
+                related: ['mouse', 'audifonos', 'mochila']
+            },
+            camiseta: {
+                name: 'Camiseta Campus',
+                category: 'Ropa',
+                price: 45000,
+                image: 'img/camisetas.webp',
+                badge: 'Nuevo',
+                badgeClass: 'badge',
+                description: 'Camiseta cómoda para uso diario con diseño universitario, tela suave y perfecta para el campus.',
+                tags: ['Algodón', 'Comoda', 'Campus'],
+                features: ['Tela suave', 'Corte moderno', 'Fácil de combinar', 'Uso diario'],
+                related: ['mochila', 'termo', 'cuaderno']
+            },
+            termo: {
+                name: 'Termo universitario',
+                category: 'Hogar',
+                price: 39900,
+                image: 'img/termo.webp',
+                badge: 'Top',
+                badgeClass: 'badge',
+                description: 'Termo ideal para llevar agua o café durante tus clases y sesiones de estudio.',
+                tags: ['Aislante', 'Práctico', 'Campus'],
+                features: ['Mantiene la temperatura', 'Capacidad útil', 'Diseño liviano', 'Fácil de transportar'],
+                related: ['camiseta', 'mochila', 'audifonos']
+            },
+            mouse: {
+                name: 'Mouse inalámbrico',
+                category: 'Tecnología',
+                price: 49900,
+                image: 'img/maus.webp',
+                badge: 'Oferta',
+                badgeClass: 'badge',
+                description: 'Mouse inalámbrico ligero y preciso para estudio, trabajo y navegación sin complicaciones.',
+                tags: ['Inalámbrico', 'Preciso', 'Ligero'],
+                features: ['Conexión rápida', 'Batería duradera', 'Diseño ergonómico', 'Sin cables'],
+                related: ['teclado', 'audifonos', 'mochila']
+            },
+            cuaderno: {
+                name: 'Cuaderno académico',
+                category: 'Papelería',
+                price: 18900,
+                image: 'img/cuadernos.webp',
+                badge: 'Últimas',
+                badgeClass: 'badge warning',
+                description: 'Cuaderno de gran calidad para apuntes, tareas y organización del semestre.',
+                tags: ['Cuaderno', 'Papelería', 'Estudio'],
+                features: ['Páginas de calidad', 'Formato práctico', 'Ideal para apuntes', 'Diseño elegante'],
+                related: ['libro', 'camiseta', 'mochila']
+            }
+        };
+
+        const CART_KEY = 'campusCart';
+        const productDetail = document.getElementById('product-detail');
+        const relatedProducts = document.getElementById('related-products');
+        const productId = new URLSearchParams(window.location.search).get('producto') || 'audifonos';
+        const product = products[productId] || products.audifonos;
+
+        const getCart = () => {
+            const cart = localStorage.getItem(CART_KEY);
+            if (!cart) return [];
+            try {
+                return JSON.parse(cart);
+            } catch (error) {
+                return [];
+            }
+        };
+
+        const saveCart = (items) => {
+            localStorage.setItem(CART_KEY, JSON.stringify(items));
+        };
+
+        const formatPrice = (value) => {
+            return new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+                maximumFractionDigits: 0
+            }).format(value);
+        };
+
+        productDetail.innerHTML = `
+            <div class="detail-grid">
+                <section>
+                    <div class="detail-image">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy">
+                    </div>
+                </section>
+
+                <article class="detail-info">
+                    <span class="${product.badgeClass}">${product.badge}</span>
+
+                    <h1>${product.name}</h1>
+
+                    <div class="rating">
+                        ★★★★★
+                        <span class="muted">(24 reseñas)</span>
+                    </div>
+
+                    <div class="price">${formatPrice(product.price)}</div>
+
+                    <p>${product.description}</p>
+
+                    <div class="tag-list">
+                        ${product.tags.map(tag => `<span class="badge">${tag}</span>`).join('')}
+                    </div>
+
+                    <ul class="feature-list">
+                        ${product.features.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+
+                    <button class="btn btn-block" type="button" id="add-to-cart">Agregar al carrito</button>
+
+                    <div class="divider"></div>
+
+                    <p class="muted">Vendidos por: Comunidad CampusShop</p>
+                </article>
+            </div>
+        `;
+
+        relatedProducts.innerHTML = (product.related || []).map((id) => {
+            const item = products[id];
+            return `
+                <article class="product-card">
+                    <a href="producto.html?producto=${id}">
+                        <div class="product-image">
+                            <img src="${item.image}" alt="${item.name}" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3>${item.name}</h3>
+                            <div class="product-price">${formatPrice(item.price)}</div>
+                        </div>
+                    </a>
+                </article>
+            `;
+        }).join('');
+
+        document.getElementById('add-to-cart').addEventListener('click', () => {
+            const cart = getCart();
+            const existingIndex = cart.findIndex((item) => item.id === productId);
+
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity = (cart[existingIndex].quantity || 1) + 1;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: product.name,
+                    category: product.category,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                });
+            }
+
+            saveCart(cart);
+            window.location.href = 'carrito.html';
+        });
+    </script>
 
 </body>
 

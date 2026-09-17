@@ -94,89 +94,7 @@
             <div class="cart-layout">
 
 
-                <section>
-
-
-                    <article class="cart-item">
-
-                        <div class="cart-thumb">
-                            🎧
-                        </div>
-
-
-                        <div>
-
-                            <div class="cart-meta">
-
-                                <div>
-
-                                    <h3>
-                                        Audífonos Campus
-                                    </h3>
-
-                                    <p class="muted">
-                                        Tecnología
-                                    </p>
-
-                                </div>
-
-
-                                <strong>
-                                    $89.900
-                                </strong>
-
-                            </div>
-
-
-                            <span class="quantity">
-                                Cantidad: 1
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="cart-item">
-
-                        <div class="cart-thumb">
-                            🎒
-                        </div>
-
-
-                        <div>
-
-                            <div class="cart-meta">
-
-                                <div>
-
-                                    <h3>
-                                        Mochila universitaria
-                                    </h3>
-
-                                    <p class="muted">
-                                        Accesorios
-                                    </p>
-
-                                </div>
-
-
-                                <strong>
-                                    $74.900
-                                </strong>
-
-                            </div>
-
-
-                            <span class="quantity">
-                                Cantidad: 1
-                            </span>
-
-                        </div>
-
-                    </article>
-
-                </section>
+                <section id="cart-items"></section>
 
 
                 <aside class="summary">
@@ -192,7 +110,7 @@
                             Subtotal
                         </span>
 
-                        <strong>
+                        <strong data-subtotal>
                             $164.800
                         </strong>
 
@@ -218,7 +136,7 @@
                             Total
                         </span>
 
-                        <strong>
+                        <strong data-total>
                             $172.800
                         </strong>
 
@@ -254,6 +172,91 @@
         </div>
 
     </footer>
+
+    <script>
+        const CART_KEY = 'campusCart';
+        const subtotalEl = document.querySelector('[data-subtotal]');
+        const totalEl = document.querySelector('[data-total]');
+        const shipping = 8000;
+
+        const formatCurrency = (value) => {
+            return new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+                maximumFractionDigits: 0
+            }).format(value);
+        };
+
+        const getCart = () => {
+            const cart = localStorage.getItem(CART_KEY);
+            if (!cart) return [];
+            try {
+                return JSON.parse(cart);
+            } catch (error) {
+                return [];
+            }
+        };
+
+        const saveCart = (items) => {
+            localStorage.setItem(CART_KEY, JSON.stringify(items));
+        };
+
+        const renderCart = () => {
+            const items = getCart();
+            const cartSection = document.getElementById('cart-items');
+
+            if (!items.length) {
+                cartSection.innerHTML = `
+                    <div class="empty-card">
+                        <h3>Tu carrito está vacío</h3>
+                        <p class="muted">Aún no has agregado productos.</p>
+                        <a href="catalogo.html" class="btn btn-primary">Ver catálogo</a>
+                    </div>
+                `;
+                subtotalEl.textContent = formatCurrency(0);
+                totalEl.textContent = formatCurrency(8000);
+                return;
+            }
+
+            cartSection.innerHTML = items.map((item) => `
+                <article class="cart-item" data-id="${item.id}" data-price="${item.price}">
+                    <div class="cart-thumb">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+
+                    <div>
+                        <div class="cart-meta">
+                            <div>
+                                <h3>${item.name}</h3>
+                                <p class="muted">${item.category}</p>
+                            </div>
+                            <strong>${formatCurrency(item.price)}</strong>
+                        </div>
+
+                        <div class="cart-item-actions">
+                            <span class="quantity">Cantidad: ${item.quantity || 1}</span>
+                            <button class="remove-btn" type="button" data-id="${item.id}">Quitar</button>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+
+            document.querySelectorAll('.remove-btn').forEach((button) => {
+                button.addEventListener('click', () => {
+                    const id = button.dataset.id;
+                    const updatedCart = getCart().filter((item) => item.id !== id);
+                    saveCart(updatedCart);
+                    renderCart();
+                });
+            });
+
+            const subtotal = items.reduce((total, item) => total + Number(item.price || 0) * Number(item.quantity || 1), 0);
+            subtotalEl.textContent = formatCurrency(subtotal);
+            totalEl.textContent = formatCurrency(subtotal + shipping);
+        };
+
+        renderCart();
+    </script>
 
 </body>
 
