@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | CampusShop</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+
+<body>
+
+    <header class="site-header">
+
+        <nav class="navbar container">
+
+            <a href="index.html" class="logo">
+
+                <span class="logo-mark">
+                    C
+                </span>
+
+                <span>
+                    CampusShop
+                </span>
+
+            </a>
+
+
+            <div class="nav-links">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="catalogo.html">
+                    Catálogo
+                </a>
+
+                <a href="historial.html">
+                    Pedidos
+                </a>
+
+                <a href="perfil.html">
+                    Perfil
+                </a>
+
+            </div>
+
+
+            <div class="nav-actions">
+
+                <a href="catalogo.html" class="icon-link">
+                    ⌕
+                </a>
+
+                <a href="carrito.html" class="icon-link">
+                    🛒
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main class="section">
+
+        <div class="container">
+
+
+            <header class="page-header">
+
+                <h1>
+                    Checkout
+                </h1>
+
+                <p>
+                    Completa los datos para simular tu pedido.
+                </p>
+
+            </header>
+
+
+            <div class="checkout-steps">
+
+                <span class="step active">
+                    1. Datos
+                </span>
+
+                <span class="step">
+                    2. Entrega
+                </span>
+
+                <span class="step">
+                    3. Pago
+                </span>
+
+            </div>
+
+
+            <div class="checkout-layout">
+
+
+                <section class="form-card">
+
+                    <form action="historial.html">
+
+
+                        <h2>
+                            Información personal
+                        </h2>
+
+
+                        <div class="form-grid two">
+
+
+                            <div class="field">
+
+                                <label for="name">
+                                    Nombre completo
+                                </label>
+
+                                <input id="name" type="text" placeholder="Tu nombre" required>
+
+                            </div>
+
+
+                            <div class="field">
+
+                                <label for="email">
+                                    Correo institucional
+                                </label>
+
+                                <input id="email" type="email" placeholder="correo@universidad.edu" required>
+
+                            </div>
+
+                        </div>
+
+
+                        <h2>
+                            Dirección de entrega
+                        </h2>
+
+
+                        <div class="form-grid two">
+
+
+                            <div class="field">
+
+                                <label for="city">
+                                    Ciudad
+                                </label>
+
+                                <select id="city">
+
+                                    <option>
+                                        Bucaramanga
+                                    </option>
+
+                                    <option>
+                                        Bogotá
+                                    </option>
+
+                                    <option>
+                                        Medellín
+                                    </option>
+
+                                    <option>
+                                        Cali
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="field">
+
+                                <label for="address">
+                                    Dirección
+                                </label>
+
+                                <input id="address" type="text" placeholder="Dirección de entrega" required>
+
+                            </div>
+
+                        </div>
+
+
+                        <h2>
+                            Método de pago
+                        </h2>
+
+
+                        <div class="field">
+
+                            <label for="payment">
+                                Selecciona un método
+                            </label>
+
+                            <select id="payment">
+
+                                <option>
+                                    Tarjeta de crédito
+                                </option>
+
+                                <option>
+                                    Tarjeta débito
+                                </option>
+
+                                <option>
+                                    Pago en efectivo
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <br>
+
+
+                        <button type="submit" class="btn btn-block">
+                            Confirmar pedido
+                        </button>
+
+
+                    </form>
+
+                </section>
+
+
+                <aside class="summary">
+
+                    <h2>
+                        Tu pedido
+                    </h2>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Audífonos Campus ×1
+                        </span>
+
+                        <strong>
+                            $89.900
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Mochila ×1
+                        </span>
+
+                        <strong>
+                            $74.900
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Envío
+                        </span>
+
+                        <strong>
+                            $8.000
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row summary-total">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong>
+                            $172.800
+                        </strong>
+
+                    </div>
+
+                </aside>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-bottom">
+                © 2026 CampusShop. Proyecto académico.
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
