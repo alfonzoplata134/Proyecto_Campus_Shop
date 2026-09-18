@@ -97,7 +97,7 @@ A continuación se presentan las vistas principales maquetadas comparadas con lo
 
 ### 🛒 Carrito de Compras
 
-![Vista del Carrito de Compras](img/carrito.png)
+![1789744951542](img/carrito.png)
 
 ### 💳 Processo de Checkout
 
@@ -109,7 +109,7 @@ A continuación se presentan las vistas principales maquetadas comparadas con lo
 
 ### 🚫 Pantalla Vacía / Error
 
-![Vista de Carrito Vacío](img/vacio.png)
+![1789745561699](img/vacio.png)
 
 ## Prodcuctos Populares
 
