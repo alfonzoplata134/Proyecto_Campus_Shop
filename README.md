@@ -117,7 +117,7 @@ A continuación se presentan las vistas principales maquetadas comparadas con lo
 
 # Historial de pedido
 
-![1789684400493](image/README/1789684400493.png)
+![1789684400493](img/historial.png)
 
 ## 🚀 Cómo usarlo
 
