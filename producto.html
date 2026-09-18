@@ -84,28 +84,350 @@
                 </a>
             </p>
 
-            <div id="product-detail"></div>
+            <style>
+                .product-panel {
+                    display: none;
+                }
+
+                .product-panel:target,
+                .product-panel.default-panel {
+                    display: block;
+                }
+
+                #audifonos:target ~ .default-panel,
+                #mochila:target ~ .default-panel,
+                #libro:target ~ .default-panel,
+                #teclado:target ~ .default-panel,
+                #camiseta:target ~ .default-panel,
+                #termo:target ~ .default-panel,
+                #mouse:target ~ .default-panel,
+                #cuaderno:target ~ .default-panel {
+                    display: none;
+                }
+
+                .product-detail-box {
+                    display: grid;
+                    grid-template-columns: 1.1fr 1fr;
+                    gap: 28px;
+                    padding: 24px;
+                    background: white;
+                    border: 1px solid var(--border);
+                    border-radius: 22px;
+                    box-shadow: var(--shadow);
+                }
+
+                .product-detail-box img {
+                    width: 100%;
+                    height: 420px;
+                    object-fit: cover;
+                    border-radius: 18px;
+                    background: #f0f0f7;
+                }
+
+                .product-detail-info h1 {
+                    margin-bottom: 12px;
+                }
+
+                .product-price {
+                    margin: 18px 0;
+                    font-size: 2rem;
+                    font-weight: 800;
+                    color: var(--text);
+                }
+
+                .product-tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 8px;
+                    margin: 18px 0;
+                }
+
+                .product-tags .badge {
+                    background: var(--primary-soft);
+                    color: var(--primary-dark);
+                }
+
+                .product-feature-list {
+                    padding-left: 18px;
+                    line-height: 1.8;
+                    color: var(--muted);
+                }
+
+                .related-grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                    gap: 18px;
+                    margin-top: 16px;
+                }
+
+                .mini-card {
+                    background: white;
+                    border: 1px solid var(--border);
+                    border-radius: 18px;
+                    overflow: hidden;
+                    box-shadow: var(--shadow);
+                }
+
+                .mini-card img {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                }
+
+                .mini-card-content {
+                    padding: 14px;
+                }
+
+                .mini-card h3 {
+                    margin-bottom: 8px;
+                }
+
+                @media (max-width: 767px) {
+                    .product-detail-box,
+                    .related-grid {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            </style>
+
+            <section id="audifonos" class="product-panel">
+                <div class="product-detail-box">
+                    <img src="img/OIP.jpg" alt="Audífonos Campus">
+                    <div class="product-detail-info">
+                        <span class="badge">Oferta</span>
+                        <h1>Audífonos Campus</h1>
+                        <div class="muted">Tecnología</div>
+                        <div class="product-price">$89.900</div>
+                        <p>Audífonos cómodos para estudiar, trabajar y disfrutar de tu música con excelente sonido y gran duración.</p>
+                        <div class="product-tags">
+                            <span class="badge">Bluetooth</span>
+                            <span class="badge">Inalámbricos</span>
+                            <span class="badge">Recargables</span>
+                        </div>
+                        <ul class="product-feature-list">
+                            <li>Batería de larga duración</li>
+                            <li>Conexión inalámbrica</li>
+                            <li>Micrófono integrado</li>
+                            <li>Diseño ligero</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mochila" class="product-panel">
+                <div class="product-detail-box">
+                    <img src="img/mochila.webp" alt="Mochila universitaria">
+                    <div class="product-detail-info">
+                        <span class="badge success">Popular</span>
+                        <h1>Mochila universitaria</h1>
+                        <div class="muted">Accesorios</div>
+                        <div class="product-price">$74.900</div>
+                        <p>Mochila resistente y espaciosa para llevar tus cuadernos, laptop y materiales con comodidad.</p>
+                        <div class="product-tags">
+                            <span class="badge">Espaciosa</span>
+                            <span class="badge">Resistente</span>
+                            <span class="badge">Ergonómica</span>
+                        </div>
+                        <ul class="product-feature-list">
+                            <li>Compartimentos múltiples</li>
+                            <li>Diseño cómodo</li>
+                            <li>Material resistente</li>
+                            <li>Ideal para campus</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="libro" class="product-panel">
+                <div class="product-detail-box">
+                    <img src="img/libros.webp" alt="Libro de programación">
+                    <div class="product-detail-info">
+                        <span class="badge warning">Nuevo</span>
+                        <h1>Libro de programación</h1>
+                        <div class="muted">Libros</div>
+                        <div class="product-price">$59.900</div>
+                        <p>Guía práctica para aprender lógica, algoritmos y desarrollo con ejemplos claros.</p>
+                        <div class="product-tags">
+                            <span class="badge">Programación</span>
+                            <span class="badge">Práctico</span>
+                            <span class="badge">Académico</span>
+                        </div>
+                        <ul class="product-feature-list">
+                            <li>Ejercicios aplicados</li>
+                            <li>Explicación paso a paso</li>
+                            <li>Para principiantes</li>
+                            <li>Actualizado</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="teclado" class="product-panel">
+                <div class="product-detail-box">
+                    <img src="img/teclado.webp" alt="Teclado mecánico">
+                    <div class="product-detail-info">
+                        <span class="badge success">Stock</span>
+                        <h1>Teclado mecánico</h1>
+                        <div class="muted">Tecnología</div>
+                        <div class="product-price">$139.900</div>
+                        <p>Teclado con mejor respuesta y comodidad para estudiar, trabajar o crear contenido.</p>
+                        <div class="product-tags">
+                            <span class="badge">Mecánico</span>
+                            <span class="badge">RGB</span>
+                            <span class="badge">Ergonómico</span>
+                        </div>
+                        <ul class="product-feature-list">
+                            <li>Teclas rápidas</li>
+                            <li>Diseño premium</li>
+                            <li>Compatibilidad USB</li>
+                            <li>Apto para trabajo y estudio</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="camiseta" class="product-panel">
+                <div class="product-detail-box">
+                    <img src="img/camisetas.webp" alt="Camiseta Campus">
+                    <div class="product-detail-info">
+                        <span class="badge">Nuevo</span>
+                        <h1>Camiseta Campus</h1>
+                        <div class="muted">Ropa</div>
+                        <div class="product-price">$45.000</div>
+                        <p>Camiseta cómoda y moderna para uso diario en tu vida universitaria.</p>
+                        <div class="product-tags">
+                            <span class="badge">Algodón</span>
+                            <span class="badge">Cómoda</span>
+                            <span class="badge">Campus</span>
+                        </div>
+                        <ul class="product-feature-list">
+                            <li>Tela suave</li>
+                            <li>Corte moderno</li>
+                            <li>Fácil de combinar</li>
+                            <li>Uso diario</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="termo" class="product-panel">
+                <div class="product-detail-box">
+                    <img src="img/termo.webp" alt="Termo universitario">
+                    <div class="product-detail-info">
+                        <span class="badge">Top</span>
+                        <h1>Termo universitario</h1>
+                        <div class="muted">Hogar</div>
+                        <div class="product-price">$39.900</div>
+                        <p>Ideal para llevar agua o café durante tus clases y sesiones de estudio.</p>
+                        <div class="product-tags">
+                            <span class="badge">Aislante</span>
+                            <span class="badge">Práctico</span>
+                            <span class="badge">Campus</span>
+                        </div>
+                        <ul class="product-feature-list">
+                            <li>Mantiene la temperatura</li>
+                            <li>Capacidad útil</li>
+                            <li>Diseño liviano</li>
+                            <li>Fácil de transportar</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mouse" class="product-panel">
+                <div class="product-detail-box">
+                    <img src="img/maus.webp" alt="Mouse inalámbrico">
+                    <div class="product-detail-info">
+                        <span class="badge">Oferta</span>
+                        <h1>Mouse inalámbrico</h1>
+                        <div class="muted">Tecnología</div>
+                        <div class="product-price">$49.900</div>
+                        <p>Mouse ligero y preciso para estudiar, trabajar y navegar sin complicaciones.</p>
+                        <div class="product-tags">
+                            <span class="badge">Inalámbrico</span>
+                            <span class="badge">Preciso</span>
+                            <span class="badge">Ligero</span>
+                        </div>
+                        <ul class="product-feature-list">
+                            <li>Conexión rápida</li>
+                            <li>Batería duradera</li>
+                            <li>Diseño ergonómico</li>
+                            <li>Sin cables</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cuaderno" class="product-panel">
+                <div class="product-detail-box">
+                    <img src="img/cuadernos.webp" alt="Cuaderno académico">
+                    <div class="product-detail-info">
+                        <span class="badge warning">Últimas</span>
+                        <h1>Cuaderno académico</h1>
+                        <div class="muted">Papelería</div>
+                        <div class="product-price">$18.900</div>
+                        <p>Cuaderno ideal para apuntes, tareas y organización del semestre.</p>
+                        <div class="product-tags">
+                            <span class="badge">Cuaderno</span>
+                            <span class="badge">Papelería</span>
+                            <span class="badge">Estudio</span>
+                        </div>
+                        <ul class="product-feature-list">
+                            <li>Páginas de calidad</li>
+                            <li>Formato práctico</li>
+                            <li>Ideal para apuntes</li>
+                            <li>Diseño elegante</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="product-panel default-panel" id="default-product">
+                <div class="product-detail-box">
+                    <img src="img/OIP.jpg" alt="Producto destacado">
+                    <div class="product-detail-info">
+                        <span class="badge">Destacado</span>
+                        <h1>Selecciona un producto</h1>
+                        <div class="muted">CampusShop</div>
+                        <div class="product-price">$0</div>
+                        <p>Elige un producto del catálogo para ver su información detallada aquí.</p>
+                    </div>
+                </div>
+            </section>
 
             <section class="section">
-
                 <div class="section-heading">
-
                     <div>
-
-                        <h2>
-                            Productos relacionados
-                        </h2>
-
-                        <p>
-                            También pueden interesarte.
-                        </p>
-
+                        <h2>Productos relacionados</h2>
+                        <p>También pueden interesarte.</p>
                     </div>
-
                 </div>
 
-                <div id="related-products" class="products-grid"></div>
+                <div class="related-grid">
+                    <a href="producto.html#audifonos" class="mini-card">
+                        <img src="img/OIP.jpg" alt="Audífonos Campus">
+                        <div class="mini-card-content">
+                            <h3>Audífonos Campus</h3>
+                            <div class="muted">$89.900</div>
+                        </div>
+                    </a>
 
+                    <a href="producto.html#teclado" class="mini-card">
+                        <img src="img/teclado.webp" alt="Teclado mecánico">
+                        <div class="mini-card-content">
+                            <h3>Teclado mecánico</h3>
+                            <div class="muted">$139.900</div>
+                        </div>
+                    </a>
+
+                    <a href="producto.html#mochila" class="mini-card">
+                        <img src="img/mochila.webp" alt="Mochila universitaria">
+                        <div class="mini-card-content">
+                            <h3>Mochila universitaria</h3>
+                            <div class="muted">$74.900</div>
+                        </div>
+                    </a>
+                </div>
             </section>
 
         </div>
@@ -124,212 +446,6 @@
         </div>
 
     </footer>
-
-    <script>
-        const products = {
-            audifonos: {
-                name: 'Audífonos Campus',
-                category: 'Tecnología',
-                price: 89900,
-                image: 'img/OIP.jpg',
-                badge: 'Oferta',
-                badgeClass: 'badge',
-                description: 'Audífonos cómodos para estudiar, asistir a clases virtuales y disfrutar de tu música durante la jornada universitaria.',
-                tags: ['Bluetooth', 'Inalámbricos', 'Recargables'],
-                features: ['Batería de larga duración', 'Conexión inalámbrica', 'Micrófono integrado', 'Diseño ligero'],
-                related: ['mouse', 'teclado', 'mochila']
-            },
-            mochila: {
-                name: 'Mochila universitaria',
-                category: 'Accesorios',
-                price: 74900,
-                image: 'img/mochila.webp',
-                badge: 'Popular',
-                badgeClass: 'badge success',
-                description: 'Mochila resistente y espaciosa para llevar tus materiales, cuaderno y laptop con comodidad todos los días.',
-                tags: ['Espaciosa', 'Resistente', 'Ergonómica'],
-                features: ['Compartimentos múltiples', 'Diseño cómodo', 'Material resistente', 'Ideal para campus'],
-                related: ['audifonos', 'teclado', 'camiseta']
-            },
-            libro: {
-                name: 'Libro de programación',
-                category: 'Libros',
-                price: 59900,
-                image: 'img/libros.webp',
-                badge: 'Nuevo',
-                badgeClass: 'badge warning',
-                description: 'Guía práctica para aprender lógica, algoritmos y desarrollo con ejemplos claros para estudiantes.',
-                tags: ['Programación', 'Práctico', 'Académico'],
-                features: ['Ejercicios aplicados', 'Explicación paso a paso', 'Para principiantes', 'Actualizado'],
-                related: ['audifonos', 'teclado', 'cuaderno']
-            },
-            teclado: {
-                name: 'Teclado mecánico',
-                category: 'Tecnología',
-                price: 139900,
-                image: 'img/teclado.webp',
-                badge: 'Stock',
-                badgeClass: 'badge success',
-                description: 'Teclado mecánico con respuesta rápida y un diseño que mejora tu experiencia de estudio y trabajo.',
-                tags: ['Mecánico', 'RGB', 'Ergonómico'],
-                features: ['Teclas rápidas', 'Diseño premium', 'Compatibilidad USB', 'Apto para trabajo y estudio'],
-                related: ['mouse', 'audifonos', 'mochila']
-            },
-            camiseta: {
-                name: 'Camiseta Campus',
-                category: 'Ropa',
-                price: 45000,
-                image: 'img/camisetas.webp',
-                badge: 'Nuevo',
-                badgeClass: 'badge',
-                description: 'Camiseta cómoda para uso diario con diseño universitario, tela suave y perfecta para el campus.',
-                tags: ['Algodón', 'Comoda', 'Campus'],
-                features: ['Tela suave', 'Corte moderno', 'Fácil de combinar', 'Uso diario'],
-                related: ['mochila', 'termo', 'cuaderno']
-            },
-            termo: {
-                name: 'Termo universitario',
-                category: 'Hogar',
-                price: 39900,
-                image: 'img/termo.webp',
-                badge: 'Top',
-                badgeClass: 'badge',
-                description: 'Termo ideal para llevar agua o café durante tus clases y sesiones de estudio.',
-                tags: ['Aislante', 'Práctico', 'Campus'],
-                features: ['Mantiene la temperatura', 'Capacidad útil', 'Diseño liviano', 'Fácil de transportar'],
-                related: ['camiseta', 'mochila', 'audifonos']
-            },
-            mouse: {
-                name: 'Mouse inalámbrico',
-                category: 'Tecnología',
-                price: 49900,
-                image: 'img/maus.webp',
-                badge: 'Oferta',
-                badgeClass: 'badge',
-                description: 'Mouse inalámbrico ligero y preciso para estudio, trabajo y navegación sin complicaciones.',
-                tags: ['Inalámbrico', 'Preciso', 'Ligero'],
-                features: ['Conexión rápida', 'Batería duradera', 'Diseño ergonómico', 'Sin cables'],
-                related: ['teclado', 'audifonos', 'mochila']
-            },
-            cuaderno: {
-                name: 'Cuaderno académico',
-                category: 'Papelería',
-                price: 18900,
-                image: 'img/cuadernos.webp',
-                badge: 'Últimas',
-                badgeClass: 'badge warning',
-                description: 'Cuaderno de gran calidad para apuntes, tareas y organización del semestre.',
-                tags: ['Cuaderno', 'Papelería', 'Estudio'],
-                features: ['Páginas de calidad', 'Formato práctico', 'Ideal para apuntes', 'Diseño elegante'],
-                related: ['libro', 'camiseta', 'mochila']
-            }
-        };
-
-        const CART_KEY = 'campusCart';
-        const productDetail = document.getElementById('product-detail');
-        const relatedProducts = document.getElementById('related-products');
-        const productId = new URLSearchParams(window.location.search).get('producto') || 'audifonos';
-        const product = products[productId] || products.audifonos;
-
-        const getCart = () => {
-            const cart = localStorage.getItem(CART_KEY);
-            if (!cart) return [];
-            try {
-                return JSON.parse(cart);
-            } catch (error) {
-                return [];
-            }
-        };
-
-        const saveCart = (items) => {
-            localStorage.setItem(CART_KEY, JSON.stringify(items));
-        };
-
-        const formatPrice = (value) => {
-            return new Intl.NumberFormat('es-CO', {
-                style: 'currency',
-                currency: 'COP',
-                maximumFractionDigits: 0
-            }).format(value);
-        };
-
-        productDetail.innerHTML = `
-            <div class="detail-grid">
-                <section>
-                    <div class="detail-image">
-                        <img src="${product.image}" alt="${product.name}" loading="lazy">
-                    </div>
-                </section>
-
-                <article class="detail-info">
-                    <span class="${product.badgeClass}">${product.badge}</span>
-
-                    <h1>${product.name}</h1>
-
-                    <div class="rating">
-                        ★★★★★
-                        <span class="muted">(24 reseñas)</span>
-                    </div>
-
-                    <div class="price">${formatPrice(product.price)}</div>
-
-                    <p>${product.description}</p>
-
-                    <div class="tag-list">
-                        ${product.tags.map(tag => `<span class="badge">${tag}</span>`).join('')}
-                    </div>
-
-                    <ul class="feature-list">
-                        ${product.features.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-
-                    <button class="btn btn-block" type="button" id="add-to-cart">Agregar al carrito</button>
-
-                    <div class="divider"></div>
-
-                    <p class="muted">Vendidos por: Comunidad CampusShop</p>
-                </article>
-            </div>
-        `;
-
-        relatedProducts.innerHTML = (product.related || []).map((id) => {
-            const item = products[id];
-            return `
-                <article class="product-card">
-                    <a href="producto.html?producto=${id}">
-                        <div class="product-image">
-                            <img src="${item.image}" alt="${item.name}" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3>${item.name}</h3>
-                            <div class="product-price">${formatPrice(item.price)}</div>
-                        </div>
-                    </a>
-                </article>
-            `;
-        }).join('');
-
-        document.getElementById('add-to-cart').addEventListener('click', () => {
-            const cart = getCart();
-            const existingIndex = cart.findIndex((item) => item.id === productId);
-
-            if (existingIndex >= 0) {
-                cart[existingIndex].quantity = (cart[existingIndex].quantity || 1) + 1;
-            } else {
-                cart.push({
-                    id: productId,
-                    name: product.name,
-                    category: product.category,
-                    price: product.price,
-                    image: product.image,
-                    quantity: 1
-                });
-            }
-
-            saveCart(cart);
-            window.location.href = 'carrito.html';
-        });
-    </script>
 
 </body>
 

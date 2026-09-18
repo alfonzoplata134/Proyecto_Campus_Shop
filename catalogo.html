@@ -189,7 +189,7 @@
 
                         <article class="product-card">
 
-                            <a href="producto.html?producto=audifonos">
+                            <a href="producto.html#audifonos">
 
                                 <div class="product-image">
 
@@ -225,7 +225,7 @@
 
                         <article class="product-card">
 
-                            <a href="producto.html?producto=mochila">
+                            <a href="producto.html#mochila">
 
                                 <div class="product-image">
                                     <img src="img/mochila.webp" alt="Mochila universitaria" loading="lazy">
@@ -254,7 +254,7 @@
 
                         <article class="product-card">
 
-                            <a href="producto.html?producto=libro">
+                            <a href="producto.html#libro">
 
                                 <div class="product-image">
                                     <img src="img/libros.webp" alt="Libro de programación" loading="lazy">
@@ -283,7 +283,7 @@
 
                         <article class="product-card">
 
-                            <a href="producto.html?producto=teclado">
+                            <a href="producto.html#teclado">
 
                                 <div class="product-image">
 
@@ -318,7 +318,7 @@
 
                         <article class="product-card">
 
-                            <a href="producto.html?producto=camiseta">
+                            <a href="producto.html#camiseta">
 
                                 <div class="product-image">
                                     <img src="img/camisetas.webp" alt="Camiseta Campus" loading="lazy">
@@ -347,7 +347,7 @@
 
                         <article class="product-card">
 
-                            <a href="producto.html?producto=termo">
+                            <a href="producto.html#termo">
 
                                 <div class="product-image">
                                     <img src="img/termo.webp" alt="Termo universitario" loading="lazy">
@@ -376,7 +376,7 @@
 
                         <article class="product-card">
 
-                            <a href="producto.html?producto=mouse">
+                            <a href="producto.html#mouse">
 
                                 <div class="product-image">
                                     <img src="img/maus.webp" alt="Mouse inalámbrico" loading="lazy">
@@ -405,7 +405,7 @@
 
                         <article class="product-card">
 
-                            <a href="producto.html?producto=cuaderno">
+                            <a href="producto.html#cuaderno">
 
                                 <div class="product-image">
 
@@ -527,51 +527,6 @@
         </div>
 
     </footer>
-
-    <script>
-        const productGrid = document.querySelector('.products-grid');
-        const countLabel = document.querySelector('.product-toolbar .muted');
-        const categoryInputs = document.querySelectorAll('input[name="category"]');
-
-        function getSelectedFilters() {
-            return [...categoryInputs]
-                .filter(input => input.checked)
-                .map(input => input.value.trim().toLowerCase());
-        }
-
-        function sortBySelectedFilters() {
-            const selectedFilters = getSelectedFilters();
-            const cards = [...document.querySelectorAll('.product-card')];
-
-            cards.sort((a, b) => {
-                const aText = a.textContent.toLowerCase();
-                const bText = b.textContent.toLowerCase();
-
-                const aMatch = selectedFilters.reduce((score, filter) => {
-                    return score + (aText.includes(filter) ? 1 : 0);
-                }, 0);
-
-                const bMatch = selectedFilters.reduce((score, filter) => {
-                    return score + (bText.includes(filter) ? 1 : 0);
-                }, 0);
-
-                if (aMatch !== bMatch) {
-                    return bMatch - aMatch;
-                }
-
-                return 0;
-            });
-
-            cards.forEach(card => productGrid.appendChild(card));
-            countLabel.textContent = `${cards.length} productos encontrados`;
-        }
-
-        categoryInputs.forEach(input => {
-            input.addEventListener('change', sortBySelectedFilters);
-        });
-
-        sortBySelectedFilters();
-    </script>
 
 </body>
 

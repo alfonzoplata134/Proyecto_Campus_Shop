@@ -93,65 +93,119 @@
 
             <div class="cart-layout">
 
+                <section id="cart-items" class="cart-list">
+                    <div class="cart-item-wrap">
+                        <input class="cart-select" type="checkbox" id="select-book" checked>
+                        <article class="cart-item">
+                            <div class="cart-thumb">
+                                <img src="img/libros.webp" alt="Libro de programación">
+                            </div>
+                            <div>
+                                <div class="cart-meta">
+                                    <div>
+                                        <h3>Libro de programación</h3>
+                                        <p class="muted">Libros</p>
+                                    </div>
+                                    <strong>$59.900</strong>
+                                </div>
+                                <div class="cart-item-actions">
+                                    <span class="quantity">Cantidad: 1</span>
+                                    <label class="remove-btn" for="select-book">Quitar</label>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
 
-                <section id="cart-items"></section>
-
+                    <div class="cart-item-wrap">
+                        <input class="cart-select" type="checkbox" id="select-keyboard" checked>
+                        <article class="cart-item">
+                            <div class="cart-thumb">
+                                <img src="img/teclado.webp" alt="Teclado mecánico">
+                            </div>
+                            <div>
+                                <div class="cart-meta">
+                                    <div>
+                                        <h3>Teclado mecánico</h3>
+                                        <p class="muted">Tecnología</p>
+                                    </div>
+                                    <strong>$139.900</strong>
+                                </div>
+                                <div class="cart-item-actions">
+                                    <span class="quantity">Cantidad: 1</span>
+                                    <label class="remove-btn" for="select-keyboard">Quitar</label>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
 
                 <aside class="summary">
+                    <h2>Resumen</h2>
 
-                    <h2>
-                        Resumen
-                    </h2>
+                    <div class="totals-panel">
+                        <div class="summary-state summary-empty">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <strong>$0</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Envío</span>
+                                <strong>$0</strong>
+                            </div>
+                            <div class="summary-row summary-total">
+                                <span>Total</span>
+                                <strong>$0</strong>
+                            </div>
+                        </div>
 
+                        <div class="summary-state summary-book">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <strong>$59.900</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Envío</span>
+                                <strong>$8.000</strong>
+                            </div>
+                            <div class="summary-row summary-total">
+                                <span>Total</span>
+                                <strong>$67.900</strong>
+                            </div>
+                        </div>
 
-                    <div class="summary-row">
+                        <div class="summary-state summary-keyboard">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <strong>$139.900</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Envío</span>
+                                <strong>$8.000</strong>
+                            </div>
+                            <div class="summary-row summary-total">
+                                <span>Total</span>
+                                <strong>$147.900</strong>
+                            </div>
+                        </div>
 
-                        <span>
-                            Subtotal
-                        </span>
-
-                        <strong data-subtotal>
-                            $164.800
-                        </strong>
-
+                        <div class="summary-state summary-both">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <strong>$199.800</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Envío</span>
+                                <strong>$8.000</strong>
+                            </div>
+                            <div class="summary-row summary-total">
+                                <span>Total</span>
+                                <strong>$207.800</strong>
+                            </div>
+                        </div>
                     </div>
 
-
-                    <div class="summary-row">
-
-                        <span>
-                            Envío
-                        </span>
-
-                        <strong>
-                            $8.000
-                        </strong>
-
-                    </div>
-
-
-                    <div class="summary-row summary-total">
-
-                        <span>
-                            Total
-                        </span>
-
-                        <strong data-total>
-                            $172.800
-                        </strong>
-
-                    </div>
-
-
-                    <a href="checkout.html" class="btn btn-block">
-                        Continuar compra
-                    </a>
-
-
-                    <a href="catalogo.html" class="btn btn-secondary btn-block">
-                        Seguir comprando
-                    </a>
-
+                    <a href="checkout.html" class="btn btn-block">Continuar compra</a>
+                    <a href="catalogo.html" class="btn btn-secondary btn-block">Seguir comprando</a>
                 </aside>
 
             </div>
@@ -172,91 +226,6 @@
         </div>
 
     </footer>
-
-    <script>
-        const CART_KEY = 'campusCart';
-        const subtotalEl = document.querySelector('[data-subtotal]');
-        const totalEl = document.querySelector('[data-total]');
-        const shipping = 8000;
-
-        const formatCurrency = (value) => {
-            return new Intl.NumberFormat('es-CO', {
-                style: 'currency',
-                currency: 'COP',
-                maximumFractionDigits: 0
-            }).format(value);
-        };
-
-        const getCart = () => {
-            const cart = localStorage.getItem(CART_KEY);
-            if (!cart) return [];
-            try {
-                return JSON.parse(cart);
-            } catch (error) {
-                return [];
-            }
-        };
-
-        const saveCart = (items) => {
-            localStorage.setItem(CART_KEY, JSON.stringify(items));
-        };
-
-        const renderCart = () => {
-            const items = getCart();
-            const cartSection = document.getElementById('cart-items');
-
-            if (!items.length) {
-                cartSection.innerHTML = `
-                    <div class="empty-card">
-                        <h3>Tu carrito está vacío</h3>
-                        <p class="muted">Aún no has agregado productos.</p>
-                        <a href="catalogo.html" class="btn btn-primary">Ver catálogo</a>
-                    </div>
-                `;
-                subtotalEl.textContent = formatCurrency(0);
-                totalEl.textContent = formatCurrency(8000);
-                return;
-            }
-
-            cartSection.innerHTML = items.map((item) => `
-                <article class="cart-item" data-id="${item.id}" data-price="${item.price}">
-                    <div class="cart-thumb">
-                        <img src="${item.image}" alt="${item.name}">
-                    </div>
-
-                    <div>
-                        <div class="cart-meta">
-                            <div>
-                                <h3>${item.name}</h3>
-                                <p class="muted">${item.category}</p>
-                            </div>
-                            <strong>${formatCurrency(item.price)}</strong>
-                        </div>
-
-                        <div class="cart-item-actions">
-                            <span class="quantity">Cantidad: ${item.quantity || 1}</span>
-                            <button class="remove-btn" type="button" data-id="${item.id}">Quitar</button>
-                        </div>
-                    </div>
-                </article>
-            `).join('');
-
-            document.querySelectorAll('.remove-btn').forEach((button) => {
-                button.addEventListener('click', () => {
-                    const id = button.dataset.id;
-                    const updatedCart = getCart().filter((item) => item.id !== id);
-                    saveCart(updatedCart);
-                    renderCart();
-                });
-            });
-
-            const subtotal = items.reduce((total, item) => total + Number(item.price || 0) * Number(item.quantity || 1), 0);
-            subtotalEl.textContent = formatCurrency(subtotal);
-            totalEl.textContent = formatCurrency(subtotal + shipping);
-        };
-
-        renderCart();
-    </script>
 
 </body>
 
